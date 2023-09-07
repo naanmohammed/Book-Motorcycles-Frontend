@@ -19,7 +19,7 @@ function MotorcycleDetails() {
       setMotorcycle(response.data);
     }
     fetchData();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>

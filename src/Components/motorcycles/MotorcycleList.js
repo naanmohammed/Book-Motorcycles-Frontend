@@ -22,13 +22,10 @@ function MotorcycleList() {
       setMotorcycles(response.data);
     }
     fetchData();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
-    <div className="motorcycle-list">
-      <h2 className="model-header">LATEST MODELS</h2>
-      <p className="model-header modelheader-ptag">Check out the latest models from our partners</p>
-
+    <div className="container">
       {motorcycles.length
         ? motorcycles.map((motorcycle) => (
           <MotorcycleCard key={nanoid()} motor={motorcycle} />
