@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState} from 'react'
 import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/user/logoutSlice';
 import './navbar.scss';
@@ -41,7 +40,7 @@ const Navbar = () => {
       </div>
       <div className="links-container">
         <ul>
-        <li>
+          <li>
             <Link
               className="link1"
               to="/add_category"

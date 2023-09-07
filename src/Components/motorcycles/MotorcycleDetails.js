@@ -48,7 +48,7 @@ const MotorcycleDetails = () => {
         </div>
 
         <div className="motor-info">
-        <h1 className="motor-model">{motorcycle.model}</h1>
+          <h1 className="motor-model">{motorcycle.model}</h1>
           <ul className="motor-spec-details">
             <li>
               Model:

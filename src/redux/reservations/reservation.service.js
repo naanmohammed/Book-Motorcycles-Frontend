@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import BASE_URL from '../api';
 
