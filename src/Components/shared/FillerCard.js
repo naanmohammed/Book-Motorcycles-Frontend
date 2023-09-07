@@ -8,7 +8,7 @@ const getColor = () => {
   return colors[Math.floor(Math.random() * colors.length)];
 };
 
-const FillerCard = ({ title }) => {
+function FillerCard({ title }) {
   const [color] = useState(getColor());
   return (
     <div className="filler-card" style={{ backgroundColor: color }}>
@@ -16,7 +16,7 @@ const FillerCard = ({ title }) => {
       <BsPlayCircle />
     </div>
   );
-};
+}
 
 FillerCard.propTypes = {
   title: PropTypes.string.isRequired,

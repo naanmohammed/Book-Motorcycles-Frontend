@@ -6,7 +6,7 @@ import Toggle from '../navigation/Toggle';
 import './motordetails.scss';
 import BASE_URL from '../../redux/api';
 
-const MotorcycleDetails = () => {
+function MotorcycleDetails() {
   const params = useParams();
   const [motorcycle, setMotorcycle] = useState([]);
 
@@ -86,6 +86,6 @@ const MotorcycleDetails = () => {
       </div>
     </div>
   );
-};
+}
 
 export default MotorcycleDetails;

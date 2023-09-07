@@ -11,7 +11,7 @@ import '../assets/styles/catpage.scss';
 import '../assets/styles/swiper.scss';
 import BASE_URL from '../../redux/api';
 
-const CategoriesPage = () => {
+function CategoriesPage() {
   const [catsList, setCatsList] = useState([]);
   const [error, setError] = useState('');
 
@@ -31,35 +31,33 @@ const CategoriesPage = () => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <>
-      <div className="wrapper">
-        <div>
-          <Navbar />
-          <Toggle />
-        </div>
-        <div className="category-container">
-          <Swiper
-            pagination={{ clickable: true }}
-            spaceBetween={5}
-            slidesPerView="auto"
-            centeredSlides
-            navigation
-            modules={[Pagination, Navigation]}
-            className="mySwiper"
-          >
-            {catsList.length
-              ? catsList.map((cat) => (
-                <SwiperSlide key={nanoid()}>
-                  <CategoryCard key={nanoid()} category={cat} />
-                </SwiperSlide>
-              ))
-              : null}
-            {error ? <div>{error}</div> : null}
-          </Swiper>
-        </div>
+    <div className="wrapper">
+      <div>
+        <Navbar />
+        <Toggle />
       </div>
-    </>
+      <div className="category-container">
+        <Swiper
+          pagination={{ clickable: true }}
+          spaceBetween={5}
+          slidesPerView="auto"
+          centeredSlides
+          navigation
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+        >
+          {catsList.length
+            ? catsList.map((cat) => (
+              <SwiperSlide key={nanoid()}>
+                <CategoryCard key={nanoid()} category={cat} />
+              </SwiperSlide>
+            ))
+            : null}
+          {error ? <div>{error}</div> : null}
+        </Swiper>
+      </div>
+    </div>
   );
-};
+}
 
 export default CategoriesPage;

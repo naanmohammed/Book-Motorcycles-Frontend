@@ -6,7 +6,7 @@ import { FiMenu } from 'react-icons/fi';
 import { logout } from '../../redux/user/logoutSlice';
 import './toggle.scss';
 
-const Toggle = () => {
+function Toggle() {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -63,16 +63,14 @@ const Toggle = () => {
         </li>
 
         {isAdmin === 'true' && (
-          <>
-            <li>
-              <NavLink
-                className={(navData) => (navData.isActive ? 'active link' : 'link')}
-                to="/add_category"
-              >
-                Add Category
-              </NavLink>
-            </li>
-          </>
+          <li>
+            <NavLink
+              className={(navData) => (navData.isActive ? 'active link' : 'link')}
+              to="/add_category"
+            >
+              Add Category
+            </NavLink>
+          </li>
         )}
 
         <li>
@@ -87,6 +85,6 @@ const Toggle = () => {
       </ul>
     </nav>
   );
-};
+}
 
 export default Toggle;

@@ -7,7 +7,7 @@ import { delcat } from '../../redux/category/delcatSlice';
 import '../assets/styles/catcard.scss';
 import BASE_URL from '../../redux/api';
 
-const CategoryCard = ({ category }) => {
+function CategoryCard({ category }) {
   const {
     catname, id, image, picture,
   } = category;
@@ -66,7 +66,7 @@ const CategoryCard = ({ category }) => {
       </div>
     </>
   );
-};
+}
 
 CategoryCard.defaultProps = {
   category: {

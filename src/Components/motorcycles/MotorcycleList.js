@@ -14,7 +14,7 @@ import Toggle from '../navigation/Toggle';
 import './motorlist.scss';
 import BASE_URL from '../../redux/api';
 
-const MotorcycleList = () => {
+function MotorcycleList() {
   const params = useParams();
   const [motorcycles, setMotorcycles] = useState([]);
   const [show, setShow] = useState(false);
@@ -168,6 +168,6 @@ const MotorcycleList = () => {
 
     </div>
   );
-};
+}
 
 export default MotorcycleList;

@@ -3,10 +3,12 @@ import React from 'react';
 // import { NavLink, useNavigate } from 'react-router-dom';
 import '../assets/styles/Header.scss';
 
-const Header = () => (
-  <header className="header">
-    BookRacers
-  </header>
-);
+function Header() {
+  return (
+    <header className="header">
+      BookRacers
+    </header>
+  );
+}
 
 export default Header;

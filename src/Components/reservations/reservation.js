@@ -11,7 +11,7 @@ import Toggle from '../navigation/Toggle';
 import './reservation.scss';
 import { updatemotor } from '../../redux/motorcycle/updatemotorSlice';
 
-const Reservation = () => {
+function Reservation() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [city, setCity] = useState('');
@@ -139,6 +139,6 @@ const Reservation = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Reservation;

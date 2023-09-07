@@ -12,63 +12,61 @@ import './swiper.css';
 import './motorcard.scss';
 import BASE_URL from '../../redux/api';
 
-const MotorcycleCard = ({ motor }) => {
+function MotorcycleCard({ motor }) {
   const params = useParams();
   const { motorcycles } = motor;
 
   return (
-    <>
-      <div className="card-container">
-        <Swiper
-          centeredSlides
-          pagination={{ clickable: true }}
-          spaceBetween={50}
-          slidesPerView="auto"
-          navigation
-          modules={[Pagination, Navigation]}
-          className="mySwiper"
-        >
-          {motorcycles.length
-            ? motorcycles.map((el) => (
-              <SwiperSlide key={nanoid()}>
-                <Link to={`/categories/${params.id}/motorcycles/${el.id}`} key={nanoid()}>
+    <div className="card-container">
+      <Swiper
+        centeredSlides
+        pagination={{ clickable: true }}
+        spaceBetween={50}
+        slidesPerView="auto"
+        navigation
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+      >
+        {motorcycles.length
+          ? motorcycles.map((el) => (
+            <SwiperSlide key={nanoid()}>
+              <Link to={`/categories/${params.id}/motorcycles/${el.id}`} key={nanoid()}>
 
-                  <div className="card card-content">
-                    <div className="img-div">
-                      { el.picture ? (<img src={`${BASE_URL}${el.picture}`} alt="" className="imgSize" />) : (<img src={el.image} alt="" className="imgSize" />)}
-                    </div>
-                    <ul>
-                      <li className="model">
-                        Motorcycle Model:
-                        {' '}
-                        {el.model}
-                      </li>
-                      <li className="content-id">
-                        ID:
-                        {' '}
-                        {el.id}
-                      </li>
-                    </ul>
-                    <div>
-                      <i className="uil uil-star" />
-                    </div>
-                    <ul className="socials">
-                      <li><FaFacebook /></li>
-                      <li><FaInstagram /></li>
-                      <li><FaTwitter /></li>
-                      <li><FaWhatsapp /></li>
-                    </ul>
+                <div className="card card-content">
+                  <div className="img-div">
+                    { el.picture ? (<img src={`${BASE_URL}${el.picture}`} alt="" className="imgSize" />) : (<img src={el.image} alt="" className="imgSize" />)}
                   </div>
+                  <ul>
+                    <li className="model">
+                      Motorcycle Model:
+                      {' '}
+                      {el.model}
+                    </li>
+                    <li className="content-id">
+                      ID:
+                      {' '}
+                      {el.id}
+                    </li>
+                  </ul>
+                  <div>
+                    <i className="uil uil-star" />
+                  </div>
+                  <ul className="socials">
+                    <li><FaFacebook /></li>
+                    <li><FaInstagram /></li>
+                    <li><FaTwitter /></li>
+                    <li><FaWhatsapp /></li>
+                  </ul>
+                </div>
 
-                </Link>
-              </SwiperSlide>
-            ))
-            : null}
-        </Swiper>
-      </div>
-    </>
+              </Link>
+            </SwiperSlide>
+          ))
+          : null}
+      </Swiper>
+    </div>
   );
-};
+}
 
 MotorcycleCard.defaultProps = {
   motor: {

@@ -10,7 +10,7 @@ import { delres } from '../../redux/reservations/delresSlice';
 import { cancelmotor } from '../../redux/motorcycle/cancelmotorSlice';
 import BASE_URL from '../../redux/api';
 
-const MyReservations = () => {
+function MyReservations() {
   const [loading, setLoading] = useState(true);
   const [myreservations, setMyReservations] = useState([]);
   useEffect(() => {
@@ -45,29 +45,28 @@ const MyReservations = () => {
   };
 
   return (
-    <>
-      <div className="wrapper">
-        <div>
-          <Navbar />
-          <Toggle />
-        </div>
-        <div className="myres-container">
-          <h1>My Reservations</h1>
-          <div className="reservations">
-            <table>
-              <thead>
-                <tr>
-                  <th>Reserve ID</th>
-                  <th>Motor ID</th>
-                  <th>Start Date</th>
-                  <th>End Date</th>
-                  <th>Total Price</th>
-                  <th>City</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {loading === false
+    <div className="wrapper">
+      <div>
+        <Navbar />
+        <Toggle />
+      </div>
+      <div className="myres-container">
+        <h1>My Reservations</h1>
+        <div className="reservations">
+          <table>
+            <thead>
+              <tr>
+                <th>Reserve ID</th>
+                <th>Motor ID</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Total Price</th>
+                <th>City</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {loading === false
                   && Object.values(myreservations)
                     .filter((reservation) => reservation.user_id === user)
                     .map((reservation) => (
@@ -107,12 +106,11 @@ const MyReservations = () => {
                         </td>
                       </tr>
                     ))}
-              </tbody>
-            </table>
-          </div>
+            </tbody>
+          </table>
         </div>
       </div>
-    </>
+    </div>
   );
-};
+}
 export default MyReservations;

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { login } from '../../redux/user/loginSlice';
 
-const NewLogin = () => {
+function NewLogin() {
   const dispatch = useDispatch();
   let state = useSelector((state) => state.login.user);
   const authenticated = useSelector((state) => state.login.authenticated);
@@ -27,23 +27,21 @@ const NewLogin = () => {
   };
 
   return (
-    <>
-      <form className="form-container" onSubmit={submitHandler}>
-        <input
-          type="text"
-          placeholder="Username"
-          name="username"
-          className="form-input"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <button type="submit" className="form-button button">
-          Log In
-        </button>
-      </form>
-    </>
+    <form className="form-container" onSubmit={submitHandler}>
+      <input
+        type="text"
+        placeholder="Username"
+        name="username"
+        className="form-input"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        required
+      />
+      <button type="submit" className="form-button button">
+        Log In
+      </button>
+    </form>
   );
-};
+}
 
 export default NewLogin;

@@ -6,7 +6,7 @@ import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
 import './addcategory.scss';
 
-const DelCategory = () => {
+function DelCategory() {
   const dispatch = useDispatch();
   const [categoryId, setCategoryId] = useState('');
   const navigate = useNavigate();
@@ -27,32 +27,30 @@ const DelCategory = () => {
   };
 
   return (
-    <>
-      <div className="wrapper">
-        <div>
-          <Navbar />
-          <Toggle />
-        </div>
-        <div className="container">
-          <h1>Delete Category</h1>
-          <form className="form-container" onSubmit={submitHandler}>
-            <input
-              type="text"
-              placeholder="Category ID"
-              name="categoryId"
-              className="form-input"
-              value={categoryId}
-              onChange={(e) => setCategoryId(e.target.value)}
-              required
-            />
-            <button type="submit" className="form-button button">
-              Delete
-            </button>
-          </form>
-        </div>
+    <div className="wrapper">
+      <div>
+        <Navbar />
+        <Toggle />
       </div>
-    </>
+      <div className="container">
+        <h1>Delete Category</h1>
+        <form className="form-container" onSubmit={submitHandler}>
+          <input
+            type="text"
+            placeholder="Category ID"
+            name="categoryId"
+            className="form-input"
+            value={categoryId}
+            onChange={(e) => setCategoryId(e.target.value)}
+            required
+          />
+          <button type="submit" className="form-button button">
+            Delete
+          </button>
+        </form>
+      </div>
+    </div>
   );
-};
+}
 
 export default DelCategory;

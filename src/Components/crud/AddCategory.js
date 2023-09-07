@@ -6,7 +6,7 @@ import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
 import './addcategory.scss';
 
-const AddCategory = () => {
+function AddCategory() {
   const dispatch = useDispatch();
   const [catname, setCatname] = useState('');
   const [picture, setPicture] = useState('');
@@ -30,57 +30,55 @@ const AddCategory = () => {
   };
 
   return (
-    <>
-      <div className="wrapper">
-        <div>
-          <Navbar />
-          <Toggle />
-        </div>
-        <div className="container">
-          <h1>Add Category</h1>
-          <form className="form-container" onSubmit={submitHandler}>
-            <input
-              type="text"
-              placeholder="Category Name"
-              name="catname"
-              className="form-input"
-              value={catname}
-              onChange={(e) => setCatname(e.target.value)}
-              required
-            />
-            <input
-              type="file"
-              accept="image/*"
-              placeholder="Image"
-              name="image"
-              className="form-input"
-              onChange={(e) => {
-                setPicture(e.target.files[0]);
-                handleChange(e);
-              }}
-              required
-            />
-            {file && (
-              <img
-                src={file}
-                style={{
-                  display: 'block',
-                  width: '150px',
-                  height: '150px',
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
-                }}
-                alt="category avatar"
-              />
-            )}
-            <button type="submit" className="form-button button">
-              Add
-            </button>
-          </form>
-        </div>
+    <div className="wrapper">
+      <div>
+        <Navbar />
+        <Toggle />
       </div>
-    </>
+      <div className="container">
+        <h1>Add Category</h1>
+        <form className="form-container" onSubmit={submitHandler}>
+          <input
+            type="text"
+            placeholder="Category Name"
+            name="catname"
+            className="form-input"
+            value={catname}
+            onChange={(e) => setCatname(e.target.value)}
+            required
+          />
+          <input
+            type="file"
+            accept="image/*"
+            placeholder="Image"
+            name="image"
+            className="form-input"
+            onChange={(e) => {
+              setPicture(e.target.files[0]);
+              handleChange(e);
+            }}
+            required
+          />
+          {file && (
+          <img
+            src={file}
+            style={{
+              display: 'block',
+              width: '150px',
+              height: '150px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+            alt="category avatar"
+          />
+          )}
+          <button type="submit" className="form-button button">
+            Add
+          </button>
+        </form>
+      </div>
+    </div>
   );
-};
+}
 
 export default AddCategory;

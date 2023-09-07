@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/styles/NotFoundPage.scss';
 
-const NotFoundPage = () => {
+function NotFoundPage() {
   useEffect(() => {
     import('../../utils/notfoundpage')
       .then((module) => {
@@ -57,6 +57,6 @@ const NotFoundPage = () => {
       <p className="wrong-para">Uh Oh! Page not found!</p>
     </div>
   );
-};
+}
 
 export default NotFoundPage;

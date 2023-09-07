@@ -3,6 +3,8 @@ import React from 'react';
 // import { NavLink, useNavigate } from 'react-router-dom';
 import '../assets/styles/Footer.scss';
 
-const Footer = () => <footer className="footer">Footer BookRacers</footer>;
+function Footer() {
+  return <footer className="footer">Footer BookRacers</footer>;
+}
 
 export default Footer;

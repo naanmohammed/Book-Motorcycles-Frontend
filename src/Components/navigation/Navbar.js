@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/user/logoutSlice';
 import './navbar.scss';
 
-const Navbar = () => {
+function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showText, setShowText] = useState(false);
@@ -117,6 +117,6 @@ const Navbar = () => {
       )}
     </nav>
   );
-};
+}
 
 export default Navbar;

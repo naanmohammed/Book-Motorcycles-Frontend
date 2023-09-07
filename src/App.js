@@ -14,8 +14,8 @@ import Reservation from './Components/reservations/reservation';
 import NotFoundPage from './Components/shared/NotFoundPage';
 import DelCategory from './Components/crud/DelCategory';
 
-const App = () => (
-  <>
+function App() {
+  return (
     <Routes>
       <Route path="/addcategory" element={<AddCategory />} />
 
@@ -37,7 +37,7 @@ const App = () => (
       <Route path="/categories/:id/motorcycles/:mid/reservation" element={<Reservation />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
-  </>
-);
+  );
+}
 
 export default App;
