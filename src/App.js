@@ -12,6 +12,7 @@ import AddCategory from './components/crud/AddCategory';
 import MyReservations from './components/reservations/MyReservations';
 import Reservation from './components/reservations/reservation';
 import NotFoundPage from './components/shared/NotFoundPage';
+import DelCategory from './components/crud/DelCategory';
 
 const App = () => (
   <>
@@ -30,6 +31,8 @@ const App = () => (
         element={<MotorcycleDetails />}
       />
       <Route path="/add_category" element={<AddCategory />} />
+      <Route path="/del_category" element={<DelCategory />} />
+      <Route path="/motorcycles" element={<MotorcycleList />} />
       <Route path="/my_reservations" element={<MyReservations />} />
       <Route path="/categories/:id/motorcycles/:mid/reservation" element={<Reservation />} />
       <Route path="*" element={<NotFoundPage />} />
