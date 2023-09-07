@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import motorDetail from './detail.service';
 
-/* eslint-disable */
 const motorSlice = createSlice({
   name: 'motor',
   initialState: {

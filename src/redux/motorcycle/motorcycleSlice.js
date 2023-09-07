@@ -1,23 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-import newmotorcycle from './motorcycle.service';
+import newotorcycle from './motorcyle.service';
 
-/* eslint-disable */
 const newmotorSlice = createSlice({
   name: 'addmotor',
   initialState: {
-    newmotorcycle: [],
+    newotorcycle: [],
     status: null,
   },
   extraReducers: {
-    [newmotorcycle.fulfilled]: (state, action) => {
-      state.newmotorcycle = [...state.newmotorcycle, action.payload];
+    [newotorcycle.fulfilled]: (state, action) => {
+      state.newotorcycle = [...state.newotorcycle, action.payload];
       state.status = 'success';
     },
-    [newmotorcycle.pending]: (state) => {
+    [newotorcycle.pending]: (state) => {
       state.status = 'loading';
     },
-    [newmotorcycle.rejected]: (state) => {
-      state.newmotorcycle = [];
+    [newotorcycle.rejected]: (state) => {
+      state.newotorcycle = [];
       state.status = 'failed';
     },
   },

@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import reservation from './reservation.service';
 import myReservations from './myreservations.service';
 
-/* eslint-disable */
 const reservationSlice = createSlice({
   name: 'motor',
   initialState: {

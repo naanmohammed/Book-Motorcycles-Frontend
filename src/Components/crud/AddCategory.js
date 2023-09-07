@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addcat } from '../../redux/category/addcatSlice';
-import './addcategory.scss';
 import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
+import './addcategory.scss';
 
-function AddCategory() {
+const AddCategory = () => {
   const dispatch = useDispatch();
   const [catname, setCatname] = useState('');
   const [picture, setPicture] = useState('');
@@ -81,6 +81,6 @@ function AddCategory() {
       </div>
     </>
   );
-}
+};
 
 export default AddCategory;
