@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import FillerCard from '../shared/FillerCard';
 import { delcat } from '../../redux/category/delcatSlice';
-import './category.css';
+import '../assets/styles/catcard.scss';
+import BASE_URL from '../../redux/api';
 
-function CategoryCard({ category }) {
+const CategoryCard = ({ category }) => {
   const {
     catname, id, image, picture,
   } = category;
@@ -15,26 +17,12 @@ function CategoryCard({ category }) {
     window.location.reload();
   };
 
-  console.log(category);
-
   return (
-    <div className="card">
-      <Link to={`/categories/${id}`}>
+    <>
+      <NavLink to={`/categories/${id}`} className="card">
+        <FillerCard title={catname} />
         <div>
-          {picture ? (
-            <img
-              src={`http://localhost:3001${picture}`}
-              alt=" "
-              className="card-img"
-              style={{
-                display: 'block',
-                width: '150px',
-                height: '150px',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-              }}
-            />
-          ) : (
+          {image ? (
             <img
               src={image}
               alt=" "
@@ -47,23 +35,37 @@ function CategoryCard({ category }) {
                 marginRight: 'auto',
               }}
             />
+          ) : (
+            <img
+              src={`${BASE_URL}${picture}`}
+              alt=" "
+              className="card-img"
+              style={{
+                display: 'block',
+                width: '150px',
+                height: '150px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            />
           )}
         </div>
-        <h3>{catname}</h3>
-      </Link>
-      {localStorage.getItem('isAdmin') === 'true' ? (
-        <button
-          type="button"
-          className="delCatBtn"
-          value={id}
-          onClick={(e) => delHandler(e.target.value)}
-        >
-          Delete
-        </button>
-      ) : null}
-    </div>
+      </NavLink>
+      <div>
+        {localStorage.getItem('isAdmin') === 'true' ? (
+          <button
+            type="button"
+            className="delCatBtn"
+            value={id}
+            onClick={(e) => delHandler(e.target.value)}
+          >
+            Delete
+          </button>
+        ) : null}
+      </div>
+    </>
   );
-}
+};
 
 CategoryCard.defaultProps = {
   category: {
