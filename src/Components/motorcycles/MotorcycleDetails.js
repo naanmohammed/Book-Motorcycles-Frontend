@@ -23,7 +23,7 @@ const MotorcycleDetails = () => {
       setMotorcycle(response.data);
     };
     fetchData();
-  }, []); // eslint-disable
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="wrapper">
@@ -48,7 +48,7 @@ const MotorcycleDetails = () => {
         </div>
 
         <div className="motor-info">
-
+          <h1 className="motor-model">{motorcycle.model}</h1>
           <ul className="motor-spec-details">
             <li>
               Model:
@@ -61,6 +61,10 @@ const MotorcycleDetails = () => {
             <li>
               Rental Price: $
               {motorcycle.rental_price}
+            </li>
+            <li>
+              Year:
+              {motorcycle.year}
             </li>
           </ul>
           <div>

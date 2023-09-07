@@ -9,6 +9,12 @@
   overflow: hidden;
 }
 
+.navbar,
+.navData .link.active {
+  color: inherit;
+  text-decoration: none;
+}
+
 .logo {
   width: 8rem;
   margin-bottom: -20px;
@@ -22,7 +28,7 @@
 }
 
 .links-container {
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 .navbar ul {
@@ -87,6 +93,21 @@
   border: 2px solid red;
   background-color: red;
   transition: all 150ms ease-in-out;
+}
+
+.popup {
+  display: block;
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  background-color: lightblue;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.link1:hover {
+  background-color: rgb(29, 241, 29);
 }
 
 @media (max-width: 768px) {

@@ -28,8 +28,7 @@ const CategoriesPage = () => {
     fetchData().catch((error) => {
       setError(error.message);
     });
-  }, []);
-  // eslint-disable
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>

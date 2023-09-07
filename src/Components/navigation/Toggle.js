@@ -37,7 +37,7 @@ const Toggle = () => {
       </button>
       <ul className={`menuNav ${navbarOpen ? ' showMenu' : ''}`}>
         <li className="book-racerlink">
-          <Link to="/categories">BookRacers</Link>
+          <Link to="/categories">Book Motorcyles</Link>
         </li>
 
         <li>
@@ -82,7 +82,7 @@ const Toggle = () => {
         </li>
         <br />
         <p className="copyright" style={{ color: '#fff' }}>
-          &copy; Racers@Microverse 2022
+          &copy; Naan and Cisco @Microverse 2023
         </p>
       </ul>
     </nav>
