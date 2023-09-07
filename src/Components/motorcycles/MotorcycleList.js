@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { nanoid } from 'nanoid';
 import DatePicker from 'react-datepicker';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import CloseButton from 'react-bootstrap/CloseButton';
 import { useDispatch } from 'react-redux';
+import { FaTimes } from 'react-icons/fa';
 import MotorcycleCard from './MotorcycleCard';
-import './motorcycle.scss';
-import './modal.css';
 import Navbar from '../navigation/Navbar';
-import newmotorcycle from '../../redux/motorcycle/motorcycle.service';
+import newotorcycle from '../../redux/motorcycle/motorcyle.service';
 import Toggle from '../navigation/Toggle';
+import './motorlist.scss';
+import BASE_URL from '../../redux/api';
 
-function MotorcycleList() {
+const MotorcycleList = () => {
   const params = useParams();
   const [motorcycles, setMotorcycles] = useState([]);
   const [show, setShow] = useState(false);
@@ -27,11 +27,12 @@ function MotorcycleList() {
   const [picture, setPicture] = useState('');
   const [rentalPrice, setRentalPrice] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       const response = await axios.get(
-        `http://localhost:3001/api/v1/categories/${params.id}`,
+        `${BASE_URL}api/v1/categories/${params.id}`,
         {
           headers: {
             Authorization: `${localStorage.getItem('token')}`,
@@ -39,17 +40,21 @@ function MotorcycleList() {
         },
       );
       setMotorcycles(response.data);
-    }
+    };
     fetchData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (model === '' || year === '' || brand === '' || picture === '' || rentalPrice === '') {
+    if (
+      model === ''
+      || year === ''
+      || brand === ''
+      || picture === ''
+      || rentalPrice === ''
+    ) {
       setMessage('Please fill all the fields');
     } else {
-      // imge upload
-      // setReserved(false);
       const motorData = new FormData();
       motorData.append('motorcycle[picture]', picture);
       motorData.append('motorcycle[model]', model);
@@ -58,49 +63,49 @@ function MotorcycleList() {
       motorData.append('motorcycle[rental_price]', rentalPrice);
       motorData.append('motorcycle[category_id]', params.id);
       motorData.append('motorcycle[reserved]', false);
-      dispatch(newmotorcycle(motorData));
-      window.location.reload();
+      dispatch(newotorcycle(motorData));
+      navigate(`/categories/${params.id}`);
       setMessage('Motorcycle created successfully');
     }
   };
 
   return (
-    <div className="motorcycle-list">
-      <Navbar />
-      <Toggle />
-      <div className="motorcycle-list-header-container">
-        <h2 className="model-header m-header">LATEST MODELS</h2>
-        <p className="model-header modelheader-ptag">Check out the latest models from our partners</p>
-      </div>
-      {message === 'Motorcycle created successfully' ? (
-        <div className="alert alert-success" role="alert">
-          {message}
-        </div>
-      ) : (
-        <div className="alert alert-danger" role="alert">
-          {message}
-        </div>
-      )}
+    <div className="wrapper">
       <div>
-        {localStorage.getItem('isAdmin') === 'true'
-          ? (
-            <button type="button" className="addMotorBtn" onClick={handleShow}>
-              <strong>+</strong>
-              Add Motorcycle
-            </button>
-          ) : null}
-        {motorcycles.length
-          ? motorcycles.map((motorcycle) => (
-            <MotorcycleCard key={nanoid()} motor={motorcycle} />
-          ))
-          : null}
+        <Navbar />
+        <Toggle />
       </div>
+      <div className="motorlist-header">
+        {message === 'Motorcycle created successfully' ? (
+          <div className="alert alert-success" role="alert">
+            {message}
+          </div>
+        ) : (
+          <div className="alert alert-danger" role="alert">
+            {message}
+          </div>
+        )}
+      </div>
+      {localStorage.getItem('isAdmin') === 'true' ? (
+        <button type="button" className="addMotorBtn" onClick={handleShow}>
+          <strong>+</strong>
+          Add Motorcycle
+        </button>
+      ) : null}
+      {motorcycles.length
+        ? motorcycles.map((motorcycle) => (
+          <MotorcycleCard key={nanoid()} motor={motorcycle} />
+        ))
+        : null}
+
       <Modal show={show} onHide={handleClose} className="modal">
         <Modal.Header>
-          <div className="addMotorBtn">
-            <CloseButton variant="white" />
+          <div className="closeModalBtn">
+            <FaTimes onClick={handleClose} />
           </div>
-          <Modal.Title><h2>Add New Motocycle</h2></Modal.Title>
+          <Modal.Title>
+            <h2>Add New Motorcycle</h2>
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-content">
           <form className="form-container" onSubmit={submitHandler}>
@@ -159,11 +164,10 @@ function MotorcycleList() {
             </Button>
           </form>
         </Modal.Body>
-        {/* <Modal.Footer>
-              </Modal.Footer> */}
       </Modal>
+
     </div>
   );
-}
+};
 
 export default MotorcycleList;

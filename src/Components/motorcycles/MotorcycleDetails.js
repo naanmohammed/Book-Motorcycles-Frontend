@@ -3,15 +3,17 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
+import './motordetails.scss';
+import BASE_URL from '../../redux/api';
 
-function MotorcycleDetails() {
+const MotorcycleDetails = () => {
   const params = useParams();
   const [motorcycle, setMotorcycle] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       const response = await axios.get(
-        `http://localhost:3001/api/v1/motorcycles/${params.mid}`,
+        `${BASE_URL}api/v1/motorcycles/${params.mid}`,
         {
           headers: {
             Authorization: `${localStorage.getItem('token')}`,
@@ -19,7 +21,7 @@ function MotorcycleDetails() {
         },
       );
       setMotorcycle(response.data);
-    }
+    };
     fetchData();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -33,35 +35,19 @@ function MotorcycleDetails() {
         <div className="motor-image">
           {motorcycle.picture ? (
             <img
-              src={`http://localhost:3001/${motorcycle.picture}`}
+              src={`${BASE_URL}${motorcycle.picture}`}
               alt=""
-              className="imgSize"
-              style={{
-                display: 'block',
-                width: '150px',
-                height: '150px',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-              }}
             />
           ) : (
             <img
               src={motorcycle.image}
               alt=""
-              className="imgSize"
-              style={{
-                display: 'block',
-                width: '150px',
-                height: '150px',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-              }}
             />
           )}
+          <h1 className="motor-model">{motorcycle.model}</h1>
         </div>
 
         <div className="motor-info">
-          <h1 className="motor-model">{motorcycle.model}</h1>
 
           <ul className="motor-spec-details">
             <li>
@@ -96,6 +82,6 @@ function MotorcycleDetails() {
       </div>
     </div>
   );
-}
+};
 
 export default MotorcycleDetails;
