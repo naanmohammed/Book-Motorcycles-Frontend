@@ -1,18 +1,15 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  height: 80vh;
-  margin: 5rem auto 1rem;
-  padding: 1rem;
-  width: 90%;
-}
+  background-color: #f4f4f4;
+  height: 50vh;
+  padding: 2rem;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
-/* Desktop Version */
-@media screen and (min-width: 768px) {
-  .container {
-    width: 50%;
+  /* Desktop Version */
+  @media screen and (min-width: 768px) {
+    width: 60%;
   }
 }

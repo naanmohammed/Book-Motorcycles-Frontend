@@ -20,7 +20,6 @@ const CategoryCard = ({ category }) => {
   return (
     <>
       <NavLink to={`/categories/${id}`} className="card">
-        <FillerCard title={catname} />
         <div>
           {image ? (
             <img
@@ -29,8 +28,9 @@ const CategoryCard = ({ category }) => {
               className="card-img"
               style={{
                 display: 'block',
-                width: '150px',
-                height: '150px',
+                width: '350px',
+                borderRadius: '50%',
+                height: '250px',
                 marginLeft: 'auto',
                 marginRight: 'auto',
               }}
@@ -50,6 +50,7 @@ const CategoryCard = ({ category }) => {
             />
           )}
         </div>
+        <FillerCard title={catname} />
       </NavLink>
       <div>
         {localStorage.getItem('isAdmin') === 'true' ? (
