@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
-// import store from './redux/store';
 import store from './redux/configureStore';
 import './index.scss';
+
+if (module.hot) {
+  module.hot.accept();
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
