@@ -5,7 +5,7 @@ import '../assets/styles/Splashscreen.scss';
 const Splashscreen = () => (
   <main className="splashscreen-container">
     <section className="splashscreen-content">
-      <h2 className="splashscreen-message">Book Motorcycles!</h2>
+      <h2 className="splashscreen-message">Welcome To BookRacers!</h2>
       <NavLink to="/register/login" className="button splashscreen-button">
         Register
       </NavLink>
