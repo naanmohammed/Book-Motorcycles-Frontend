@@ -5,9 +5,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  min-width: 500px;
   width: 100%;
   height: 50%;
-  background-color: #fff;
   padding: 1rem;
   font-size: 20px;
 }
@@ -19,6 +19,19 @@
   width: 100%;
   height: 50px;
   margin-bottom: 1rem;
+}
+
+.motor-spec-details li:nth-child(even) {
+  background-color: rgb(245, 243, 243);
+}
+
+.motor-spec-details li:nth-child(odd) {
+  background-color: darkgray;
+}
+
+.motor-spec-details li {
+  padding: 5px;
+  margin: 5px 0;
 }
 
 .motorcycle-details-container {
@@ -45,6 +58,10 @@
     width: 200px;
     height: 200px;
   }
+}
+
+.motor-info {
+  margin-left: 10%;
 }
 
 .reserve-btn,
