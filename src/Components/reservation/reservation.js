@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import motorDetail from '../../redux/motorcycles/detail.service';
 import reservation from '../../redux/reservations/reservation.service';
-import totalPrice from '../../helpers/dateHandler';
+import totalPrice from '../../helpers/dataHandler';
 import Navbar from '../navigation/Navbar';
 import Toggle from '../navigation/Toggle';
 import './reservation.css';
