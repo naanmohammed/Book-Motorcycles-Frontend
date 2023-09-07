@@ -23,7 +23,7 @@ const MotorcycleDetails = () => {
       setMotorcycle(response.data);
     };
     fetchData();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable
 
   return (
     <div className="wrapper">

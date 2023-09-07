@@ -13,7 +13,7 @@ const Splashscreen = () => {
     <>
       <main className="splashscreen-container">
         <section className="splashscreen-content">
-          <h2 className="splashscreen-message">Welcome To BookRacers!</h2>
+          <h2 className="splashscreen-message">Book Motorcyles!</h2>
           <NavLink to="/register/login" className="button splashscreen-button">
             Register
           </NavLink>

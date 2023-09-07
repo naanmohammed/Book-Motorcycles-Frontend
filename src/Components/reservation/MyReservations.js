@@ -28,7 +28,8 @@ const MyReservations = () => {
       setMyReservations(response.data.reservation);
     }
     fetchData();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
+  // eslint-disable
 
   const navigate = useNavigate();
   const dispatch = useDispatch();

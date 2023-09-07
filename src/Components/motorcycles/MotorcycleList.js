@@ -42,7 +42,7 @@ const MotorcycleList = () => {
       setMotorcycles(response.data);
     };
     fetchData();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable
 
   const submitHandler = (e) => {
     e.preventDefault();
