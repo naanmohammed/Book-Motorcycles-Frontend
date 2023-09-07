@@ -1,18 +1,18 @@
 import React from 'react';
-// import { Routes, Route } from 'react-router-dom';
-// import Splashscreen from './components/Splashscreen';
-import logo from './logo.svg';
+import { Routes, Route } from 'react-router-dom';
+import Splashscreen from './Components/Splashpage/Splashscreen';
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js
-            </code>
-             and save to reload.
+          Edit
+          <code>
+            src/App.js
+          </code>
+          and save to reload.
         </p>
         <a
           className="App-link"
