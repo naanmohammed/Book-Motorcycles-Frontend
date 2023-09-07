@@ -1,18 +1,18 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import Splashscreen from './components/home/Splashscreen';
-import Register from './components/home/Register';
-import NewLogin from './components/home/NewLogin';
-import NewSignUp from './components/home/NewSignUp';
-import CategoriesPage from './components/categories/CategoriesPage';
-import MotorcycleList from './components/motorcycles/MotorcycleList';
-import MotorcycleDetails from './components/motorcycles/MotorcycleDetails';
-import AddCategory from './components/crud/AddCategory';
-import MyReservations from './components/reservations/MyReservations';
-import Reservation from './components/reservations/reservation';
-import NotFoundPage from './components/shared/NotFoundPage';
-import DelCategory from './components/crud/DelCategory';
+import Splashscreen from './Components/home/Splashscreen';
+import Register from './Components/home/Register';
+import NewLogin from './Components/home/NewLogin';
+import NewSignUp from './Components/home/NewSignUp';
+import CategoriesPage from './Components/categories/CategoriesPage';
+import MotorcycleList from './Components/motorcycles/MotorcycleList';
+import MotorcycleDetails from './Components/motorcycles/MotorcycleDetails';
+import AddCategory from './Components/crud/AddCategory';
+import MyReservations from './Components/reservations/MyReservations';
+import Reservation from './Components/reservations/reservation';
+import NotFoundPage from './Components/shared/NotFoundPage';
+import DelCategory from './Components/crud/DelCategory';
 
 const App = () => (
   <>
