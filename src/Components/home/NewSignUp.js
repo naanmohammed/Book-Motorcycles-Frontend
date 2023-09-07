@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { signup } from '../../redux/user/signupSlice';
 
-function NewSignUp() {
+const NewSignUp = () => {
   const dispatch = useDispatch();
   const authenticated = useSelector((state) => state.signup.authenticated);
   const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -21,24 +22,29 @@ function NewSignUp() {
 
   const state = {
     name,
+    username,
     email,
     password,
     admin: false,
   };
 
   const submitHandler = (e) => {
-    if (password !== passwordConfirmation) {
-      // eslint-disable-next-line
-      alert('Password mismatch');
-      e.preventDefault();
-    }
-    dispatch(signup(state));
     e.preventDefault();
+    dispatch(signup(state));
   };
 
   return (
     <>
       <form className="form-container" onSubmit={submitHandler}>
+        <input
+          type="text"
+          placeholder="Preferred Username"
+          name="username"
+          className="form-input"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
         <input
           type="text"
           placeholder="Name"
@@ -81,6 +87,6 @@ function NewSignUp() {
       </form>
     </>
   );
-}
+};
 
 export default NewSignUp;
