@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState} from 'react'
 import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/user/logoutSlice';
 import './navbar.scss';
@@ -7,51 +8,93 @@ import './navbar.scss';
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [showText, setShowText] = useState(false);
+  const [showText1, setShowText1] = useState(false);
 
   const clickHandler = () => {
     dispatch(logout());
     navigate('/');
   };
 
-  const isAdmin = localStorage.getItem('isAdmin');
+  const toggleText = () => {
+    setShowText(!showText);
+
+    setTimeout(() => {
+      setShowText(false);
+    }, 2000);
+  };
+
+  const toggleText1 = () => {
+    setShowText1(!showText);
+
+    setTimeout(() => {
+      setShowText1(false);
+    }, 2000);
+  };
 
   return (
     <nav className="navbar desktop-sidebar">
       <div className="logo-container">
         <Link to="/categories">
-          <p className="logo-name">BookRacers</p>
+          <p className="logo-name">Book Motorcyles</p>
         </Link>
       </div>
       <div className="links-container">
         <ul>
+        <li>
+            <Link
+              className="link1"
+              to="/add_category"
+            >
+              ADD CATEGORIES
+            </Link>
+          </li>
           <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? 'active link' : 'link')}
+            <Link
+              className="link1"
+              to="/categories"
+              onClick={toggleText}
+            >
+
+              RESERVE MOTORCYCLE
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              className="link1"
+              to="/categories"
+              onClick={toggleText1}
+            >
+
+              VIEW MOTORCYCLES
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              className="link1"
               to="/categories"
             >
               CATEGORIES
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? 'active link' : 'link')}
+            <Link
+              className="link1"
               to="/my_reservations"
             >
               My Reservations
-            </NavLink>
+            </Link>
           </li>
-          {isAdmin === 'true' && (
-            <>
-              <li>
-                <NavLink
-                  className={(navData) => (navData.isActive ? 'active link' : 'link')}
-                  to="/add_category"
-                >
-                  Add Category
-                </NavLink>
-              </li>
-            </>
-          )}
+          <li>
+            <Link
+              className="link1"
+              to="/del_category"
+            >
+              DELETE CATEGORIES
+            </Link>
+          </li>
           <li>
             <button type="button" className="logoutBtn" onClick={clickHandler}>
               LOGOUT
@@ -60,7 +103,19 @@ const Navbar = () => {
         </ul>
       </div>
       <br />
-      <p className="copyright">&copy; Racers@Microverse 2022</p>
+      <p className="copyright">&copy; Naan & Cisco | Microverse</p>
+
+      {showText && (
+        <div className="popup">
+          <p>Choose a category to reserve from</p>
+        </div>
+      )}
+
+      {showText1 && (
+        <div className="popup">
+          <p>Choose a category to show Motorcycles</p>
+        </div>
+      )}
     </nav>
   );
 };
