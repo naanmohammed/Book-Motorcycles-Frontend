@@ -28,9 +28,9 @@ function CategoryCard({ category }) {
               className="card-img"
               style={{
                 display: 'block',
-                width: '350px',
-                borderRadius: '50%',
-                height: '250px',
+                width: '100%',
+                borderRadius: '30%',
+                height: '150px',
                 marginLeft: 'auto',
                 marginRight: 'auto',
               }}
@@ -42,7 +42,8 @@ function CategoryCard({ category }) {
               className="card-img"
               style={{
                 display: 'block',
-                width: '150px',
+                width: '100%',
+                borderRadius: '30%',
                 height: '150px',
                 marginLeft: 'auto',
                 marginRight: 'auto',

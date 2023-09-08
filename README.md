@@ -130,18 +130,6 @@ To run the project, execute the following command:
 npm start
 ```
 
-
-
-### Run tests
-
-To run tests, run the following command:
-
-  ```sh
-    npm lint
-  ```
-
-
-
 ## 👥 Authors <a name="authors"></a>
 
 ## Author

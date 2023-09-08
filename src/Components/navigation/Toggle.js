@@ -10,6 +10,8 @@ function Toggle() {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [showText, setShowText] = useState(false);
+  const [showText1, setShowText1] = useState(false);
 
   const handleToggle = () => {
     setNavbarOpen((prev) => !prev);
@@ -24,7 +26,21 @@ function Toggle() {
     navigate('/');
   };
 
-  const isAdmin = localStorage.getItem('isAdmin');
+  const toggleText = () => {
+    setShowText(!showText);
+
+    setTimeout(() => {
+      setShowText(false);
+    }, 2000);
+  };
+
+  const toggleText1 = () => {
+    setShowText1(!showText);
+
+    setTimeout(() => {
+      setShowText1(false);
+    }, 2000);
+  };
 
   return (
     <nav className="navBar toggle">
@@ -42,17 +58,6 @@ function Toggle() {
 
         <li>
           <NavLink
-            to="/categories"
-            className="active-link"
-            onClick={() => closeMenu()}
-            exact="true"
-          >
-            RACERS
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink
             to="/my_reservations"
             className="active-link"
             onClick={() => closeMenu()}
@@ -62,16 +67,54 @@ function Toggle() {
           </NavLink>
         </li>
 
-        {isAdmin === 'true' && (
-          <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? 'active link' : 'link')}
-              to="/add_category"
+        <li>
+          <NavLink
+            className={(navData) => (navData.isActive ? 'active link' : 'link')}
+            to="/add_category"
+            onClick={() => closeMenu()}
+          >
+            ADD CATEGORIES
+          </NavLink>
+        </li>
+
+        <li>
+        <Link
+              className="link1"
+              to="/categories"
+              onClick={() => {
+                toggleText();
+                closeMenu();
+              }}
+
             >
-              Add Category
-            </NavLink>
+
+              RESERVE MOTORCYCLE
+            </Link>
+        </li>
+        <li>
+            <Link
+              className="link1"
+              to="/categories"
+              onClick={() => {
+                toggleText1();
+                closeMenu();
+              }}
+            >
+
+              VIEW MOTORCYCLES
+            </Link>
           </li>
-        )}
+
+        <li>
+            <Link
+              className="link1"
+              to="/categories"
+              onClick={() => closeMenu()}
+            >
+
+              CATEGORIES
+            </Link>
+          </li>
 
         <li>
           <button type="button" className="logout" onClick={clickHandler}>
@@ -83,6 +126,17 @@ function Toggle() {
           &copy; Naan and Cisco @Microverse 2023
         </p>
       </ul>
+      {showText && (
+        <div className="popup">
+          <p>Choose a category to reserve from</p>
+        </div>
+      )}
+
+      {showText1 && (
+        <div className="popup">
+          <p>Choose a category to show Motorcycles</p>
+        </div>
+      )}
     </nav>
   );
 }
