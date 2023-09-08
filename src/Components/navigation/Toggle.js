@@ -78,43 +78,42 @@ function Toggle() {
         </li>
 
         <li>
-        <Link
-              className="link1"
-              to="/categories"
-              onClick={() => {
-                toggleText();
-                closeMenu();
-              }}
+          <Link
+            className="link1"
+            to="/categories"
+            onClick={() => {
+              toggleText();
+              closeMenu();
+            }}
+          >
 
-            >
-
-              RESERVE MOTORCYCLE
-            </Link>
+            RESERVE MOTORCYCLE
+          </Link>
         </li>
         <li>
-            <Link
-              className="link1"
-              to="/categories"
-              onClick={() => {
-                toggleText1();
-                closeMenu();
-              }}
-            >
+          <Link
+            className="link1"
+            to="/categories"
+            onClick={() => {
+              toggleText1();
+              closeMenu();
+            }}
+          >
 
-              VIEW MOTORCYCLES
-            </Link>
-          </li>
+            VIEW MOTORCYCLES
+          </Link>
+        </li>
 
         <li>
-            <Link
-              className="link1"
-              to="/categories"
-              onClick={() => closeMenu()}
-            >
+          <Link
+            className="link1"
+            to="/categories"
+            onClick={() => closeMenu()}
+          >
 
-              CATEGORIES
-            </Link>
-          </li>
+            CATEGORIES
+          </Link>
+        </li>
 
         <li>
           <button type="button" className="logout" onClick={clickHandler}>
